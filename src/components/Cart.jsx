@@ -1,3 +1,4 @@
+import './Cart.css'
 import { useId } from "react";
 import { CartIcon, ClearCartIcon, RemoveFromCartIcon } from "./Icons.jsx";
 
@@ -13,8 +14,8 @@ export function Cart () {
                 <ul>
                     <li>
                         <img
-                            src=""
-                            alt=""
+                            src="https://i.dummyjson.com/data/products/1/1.jpg"
+                            alt="iPhone"
                         />
                         <div>
                             <strong>Iphone</strong> - $1500
