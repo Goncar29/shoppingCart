@@ -17,10 +17,32 @@ const UPDATE_STATE_BY_ACTION = {
         const productInCartIndex = state.findIndex(item => item.id === id)
 
         if (productInCartIndex >= 0) {
+            // 👀 una forma sería usando structuredClone
             //esto hace copias profundas de los arrays
             const newState = structuredClone(state)
             // al cart nuevo le incrementamos la cantidad, ya que no es parte del estado
             newState[productInCartIndex].quantity += 1
+
+      // 👶 usando el map
+      // const newState = state.map(item => {
+      //   if (item.id === id) {
+      //     return {
+      //       ...item,
+      //       quantity: item.quantity + 1
+      //     }
+      //   }
+
+      //   return item
+      // })
+
+      // ⚡ usando el spread operator y slice
+        // const newState = [
+        //     ...state.slice(0, productInCartIndex),
+        //     { ...state[productInCartIndex], quantity: state[productInCartIndex].quantity + 1 },
+        //     ...state.slice(productInCartIndex + 1)
+        // ]
+
+
             updateLocalStorage(newState)
             return newState
         }
