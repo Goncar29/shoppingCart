@@ -16,8 +16,16 @@ export function CartProvider({ children }) {
             const newCart = structuredClone(cart)
             // al cart nuevo le incrementamos la cantidad, ya que no es parte del estado
             newCart[productInCarIndex].quantity += 1
-            setCart(newCart)
+            return setCart(newCart)
         }
+        // Si el producto no esta en el carrito
+        setCart(prevState => ([
+            ...prevState,
+            {
+                ...product,
+                quantity: 1,
+            }
+        ]))
     }
 
     const clearCart = () => {
